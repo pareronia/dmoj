@@ -44,28 +44,19 @@ public class ${class_name} {
         System.out.println(supplier.get());
     }
     
-    private Result<?> handleTestCase(final Integer i, final FastScanner sc) {
-        int ans = 0;
-        return new Result<>(i, List.of(ans));
+    private void handleTestCase(final Integer i, final FastScanner sc) {
+        // TODO
     }
     
     public void solve() {
         try (final FastScanner sc = new FastScanner(this.in)) {
             final int numberOfTestCases = sc.nextInt();
-            final List<Result<?>> results
-                    = Stream.iterate(1, i -> i <= numberOfTestCases, i -> i + 1)
-                            .map(i -> handleTestCase(i, sc))
-                            .collect(toList());
-            output(results);
+            for (int i = 0; i < numberOfTestCases; i++) {
+                handleTestCase(i, sc);
+            }
         }
     }
 
-    private void output(final List<Result<?>> results) {
-        results.forEach(r -> {
-            r.getValues().stream().map(Object::toString).forEach(this.out::println);
-        });
-    }
-    
     public static void main(final String[] args) throws IOException, URISyntaxException {
         final boolean sample = isSample();
         final InputStream is;
@@ -155,21 +146,6 @@ public class ${class_name} {
             } catch (final IOException e) {
                 // ignore
             }
-        }
-    }
-    
-    private static final class Result<T> {
-        @SuppressWarnings("unused")
-        private final int number;
-        private final List<T> values;
-        
-        public Result(final int number, final List<T> values) {
-            this.number = number;
-            this.values = values;
-        }
-
-        public List<T> getValues() {
-            return values;
         }
     }
 }

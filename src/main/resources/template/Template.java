@@ -46,6 +46,8 @@ public class ${class_name} {
     
     private void handleTestCase(final Integer i, final FastScanner sc) {
         // TODO
+        int ans = 0;
+        this.out.println(ans);
     }
     
     public void solve() {
@@ -132,6 +134,15 @@ public class ${class_name} {
     
         public int nextInt() {
             return Integer.parseInt(next());
+        }
+        
+        @SuppressWarnings("unused")
+        public int[] nextIntArray(final int n) {
+            final int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = nextInt();
+            }
+            return a;
         }
         
         @SuppressWarnings("unused")
